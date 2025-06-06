@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* espaçamento entre os links */
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li a {
+  color: #333;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+header nav ul li a:hover {
+  color: #fff;
+  background-color: #a40e5a; /* azul, pode trocar para a cor que quiser */
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+}
+
+
+.logo {
+  color: #a40e5a;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.hero {
+  background: url('../images/imagem_nestor.jpeg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+  color: #fff;
+}
+
+
+
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #a40e5a;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+}
+
+.btn:hover {
+  background: #870b48;
+}
+
+.sobre,
+.servicos {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 250px;
+}
+
+footer {
+  background: #222;
+  color: #eee;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: 40px;
+}
