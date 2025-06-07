@@ -10,7 +10,10 @@
   <header>
     <div class="container">
       <a href="index.html"><h1 class="logo">Instituto</h1></a>
-      <nav>
+
+      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+
+      <nav class="nav">
         <ul>
           <li><a href="#sobre">Sobre o Dr.</a></li>
           <li><a href="#servicos">Cirurgias</a></li>
@@ -57,5 +60,15 @@
       <p>Contato: contato@instituto.com | (11) 99999-9999</p>
     </div>
   </footer>
+
+  <script>
+    // JavaScript do menu
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

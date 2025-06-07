@@ -5,6 +5,10 @@
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.6;
@@ -141,3 +145,49 @@ footer {
   text-align: center;
   margin-top: 40px;
 }
+
+/* Menu hambúrguer */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a40e5a;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav.nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    display: none;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+  }
+
+  nav.nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
