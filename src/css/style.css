@@ -62,9 +62,12 @@ header nav ul li a:hover {
 
 
 .logo {
-  color: #a40e5a;
-  font-weight: bold;
+  height: 60px;         /* Tamanho similar ao texto dos links */
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
+
 
 nav ul {
   list-style: none;
@@ -198,3 +201,4 @@ footer {
   display: block;
   margin: 20px auto; /* centraliza a imagem */
 }
+
