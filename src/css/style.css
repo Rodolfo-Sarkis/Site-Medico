@@ -191,3 +191,10 @@ footer {
   }
 }
 
+.sobre img {
+  max-width: 100%;
+  height: auto;
+  width: 400px; /* ou o tamanho máximo que quiser */
+  display: block;
+  margin: 20px auto; /* centraliza a imagem */
+}
