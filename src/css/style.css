@@ -66,18 +66,16 @@ header nav ul li a {
 
 header nav ul li a:hover {
   color: #fff;
-  background-color: #a40e5a; /* azul, pode trocar para a cor que quiser */
+  background-color: #a40e5a;
   box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
 }
 
-
 .logo {
-  height: 60px;         /* Tamanho similar ao texto dos links */
+  height: 60px;    /* Tamanho similar ao texto dos links */
   width: auto;
   display: block;
   object-fit: contain;
 }
-
 
 nav ul {
   list-style: none;
@@ -91,19 +89,17 @@ nav a {
   font-weight: 500;
 }
 
+/* ===== HERO ===== */
 .hero {
   background: url('../images/imagem_nestor.jpeg') no-repeat center center/cover;
-  height: 100vh;
+  min-height: calc(100vh - var(--header-h)); /* ocupa a viewport menos o header */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 80px;
+  /* padding-top removido; compensação já é feita no body */
   color: #fff;
 }
-
-
-
 
 .hero h2 {
   font-size: 2.5rem;
@@ -159,17 +155,52 @@ footer {
   margin-top: 40px;
 }
 
-/* Menu hambúrguer */
+/* ===== MENU HAMBÚRGUER ANIMADO ===== */
 .menu-toggle {
-  display: none;
-  font-size: 28px;
-  background: none;
+  display: none;            /* visível no mobile no @media */
+  width: 40px;
+  height: 40px;
+  position: relative;
   border: none;
+  background: transparent;
   cursor: pointer;
-  color: #a40e5a;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Responsividade */
+/* Barras do hambúrguer */
+.menu-toggle .bar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #a40e5a;
+  transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease;
+}
+
+.menu-toggle .bar:nth-child(1) { top: 12px; }
+.menu-toggle .bar:nth-child(2) { top: 19px; }
+.menu-toggle .bar:nth-child(3) { top: 26px; }
+
+/* Estado ativo: vira X */
+.menu-toggle.active .bar:nth-child(1) {
+  top: 19px;
+  transform: rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  top: 19px;
+  transform: rotate(-45deg);
+}
+
+/* Acessibilidade no foco */
+.menu-toggle:focus-visible {
+  outline: 2px solid #a40e5a;
+  outline-offset: 3px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   header .container {
     flex-direction: row;
@@ -199,17 +230,17 @@ footer {
     align-items: center;
   }
 
-  .menu-toggle {
-    display: block;
+  .menu-toggle { 
+    display: block;       /* mostra o botão no mobile */
   }
 }
 
 .sobre img {
   max-width: 100%;
   height: auto;
-  width: 400px; /* ou o tamanho máximo que quiser */
+  width: 400px;           /* ou o tamanho máximo que quiser */
   display: block;
-  margin: 20px auto; /* centraliza a imagem */
+  margin: 20px auto;      /* centraliza a imagem */
 }
 
 .whatsapp-button {
@@ -236,3 +267,4 @@ footer {
 .whatsapp-button:hover {
   background-color: #1ebe5d;
 }
+

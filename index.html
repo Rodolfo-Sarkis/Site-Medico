@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instituto de Cirurgia Íntima</title>
+  <title>Emagrecentro</title>
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="icon" type="image/x-icon" href="src/images/favicon-16x16.png">
 </head>
@@ -13,11 +13,15 @@
   <header>
     <div class="container">
       <a href="index.html">
-        <img src="src/images/emagrecentro logo.jpg" alt="Instituto de Cirurgia Íntima" class="logo">
+        <img src="src/images/emagrecentro logo.jpg" alt="Instituto de Cirurgia Íntima" class="logo" />
       </a>
 
-
-      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+      <!-- Botão hambúrguer animado -->
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" type="button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
       <nav class="nav">
         <ul>
@@ -40,11 +44,12 @@
   <section id="sobre" class="sobre">
     <div class="container">
       <h2>Sobre o Dr. Nestor Aramayo</h2>
-      <p>Especialista em Ginecologia Estética com vasta experiência em cirurgias íntimas femininas. Também realizamos
-        procedimentos estéticos e reparadores não cirúrgico, com recentes e modernas técnicas</p>
-      <br> <br> <br>
-      <img src="src/images/laser CO2.webp" alt="Laser CO2">
-
+      <p>
+        Especialista em Ginecologia Estética com vasta experiência em cirurgias íntimas femininas. Também
+        realizamos procedimentos estéticos e reparadores não cirúrgico, com recentes e modernas técnicas
+      </p>
+      <br /><br /><br />
+      <img src="src/images/laser CO2.webp" alt="Laser CO2" />
     </div>
   </section>
 
@@ -73,19 +78,40 @@
   </footer>
 
   <!-- Botão WhatsApp flutuante -->
-  <a href="https://wa.me/5511995059237" class="whatsapp-button" target="_blank" aria-label="Fale conosco no WhatsApp">
+  <a
+    href="https://wa.me/5511995059237"
+    class="whatsapp-button"
+    target="_blank"
+    aria-label="Fale conosco no WhatsApp"
+  >
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
   </a>
 
-
   <script>
-    // JavaScript do menu
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
 
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
+    if (toggle && nav) {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('active');
+        toggle.classList.toggle('active', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+      });
+
+      // Fecha o menu ao clicar num link
+      document.querySelectorAll('.nav a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('active');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Abrir menu');
+        });
+      });
+    }
   </script>
 </body>
 
